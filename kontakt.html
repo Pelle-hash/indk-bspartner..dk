@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt - Indkøbspartner ApS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cookie-banner -->
+  <div class="cookie-banner" id="cookie-banner" style="display: none;">
+    <p>
+      Websiden anvender cookies til at huske dine indstillinger og valg samt føre statistik. 
+      <a href="#">Læs mere &gt;&gt;</a>
+      <button onclick="acceptCookies()">Ok – luk boksen</button>
+    </p>
+  </div>
+
+  <header>
+<div class="logo">
+    <img src="images/logo.png" alt="Logo" />
+  </div>
+    <nav>
+      <a href="index.html">Hjem</a>
+      <a href="omos.html">Om os</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- Kontaktformular og billede -->
+  <div class="section contact-wrap">
+    <div class="contact-left">
+      <h2>Kontakt os</h2>
+      <p>Send os en besked via formularen herunder:</p>
+
+      <form class="slide-in" action="https://formspree.io/f/YOUR-ID-HER" method="POST">
+	<input type="hidden" name="_redirect" value="tak.html">
+        <label for="navn">Navn:</label><br>
+        <input type="text" id="navn" name="navn" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="besked">Besked:</label><br>
+        <textarea id="besked" name="besked" rows="5" required></textarea><br><br>
+
+        <button type="submit">Send besked</button>
+      </form>
+
+      <p id="thanks-msg" style="display:none; color: limegreen; font-weight: bold;">Tak for din besked! Vi vender tilbage hurtigst muligt.</p>
+    </div>
+
+    <div class="contact-right">
+      <img src="images/person.png" alt="Kontaktperson">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-box">
+        <img src="images/phone-icon.png" alt="Telefon" class="icon">
+        <p><strong>Ring DK:</strong><br>+45 22 29 20 25</p>
+      </div>
+
+      <div class="footer-box">
+        <img src="images/invoice-icon.png" alt="Faktura" class="icon">
+        <p><strong>Faktura DK:</strong><br>indkoebspartner@gmail.com</p>
+      </div>
+
+      <div class="footer-box">
+        <img src="images/mail-icon.png" alt="Mail" class="icon">
+        <p><strong>Mail DK:</strong><br>indkoebspartner@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+  <a href="privatliv.html">Privatlivspolitik</a>
+<a href="cookies.html">Cookiepolitik</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="#">Certificeringer</a>
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function acceptCookies() {
+      localStorage.setItem("cookiesAccepted", "true");
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+
+    window.addEventListener("load", function () {
+      const accepted = localStorage.getItem("cookiesAccepted");
+      if (!accepted) {
+        document.getElementById("cookie-banner").style.display = "block";
+      }
+    });
+
+    // Formular vis tak-besked
+    const form = document.querySelector("form");
+    const thanks = document.getElementById("thanks-msg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      thanks.style.display = "block";
+    });
+  </script>
+
+
+</body>
+</html>

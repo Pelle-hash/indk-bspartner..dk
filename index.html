@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indkøbspartner ApS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Cookie-popup -->
+<div class="cookie-popup" id="cookie-popup">
+  <p>
+    Vi bruger cookies til statistik og forbedring af hjemmesiden.
+    <a href="cookies.html">Læs mere</a>
+  </p>
+  <div class="cookie-buttons">
+    <button onclick="acceptCookies()">Accepter</button>
+    <button onclick="rejectCookies()">Afvis</button>
+  </div>
+</div>
+
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Logo" />
+  </div>
+  <nav>
+    <a href="#">Hjem</a>
+    <a href="omos.html">Om os</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="overlay">
+    <h1>Vi gør gode indkøb enkelt</h1>
+  </div>
+</div>
+
+<section class="section intro-wrap">
+  <div class="intro-text">
+    <h2>Velkommen til Indkøbspartner ApS</h2>
+    <p>Vi tilbyder professionel rådgivning inden for strategisk og operationelt indkøb...</p>
+    <p>Hos os får du ikke standardløsninger – men et samarbejde, der tager udgangspunkt i dine mål.</p>
+  </div>
+  <div class="intro-image">
+    <img src="images/meeting.jpg" alt="Indkøbsmøde med kunde">
+  </div>
+</section>
+
+<section class="section why-us">
+  <h2>Hvorfor vælge os?</h2>
+  <div class="why-grid">
+    <div class="why-box">
+      <div class="why-icon">🔍</div>
+      <h4>Dokumenterede besparelser</h4>
+      <p>Vi viser præcis hvor du kan spare – med data og gennemsigtighed.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-icon">🤝</div>
+      <h4>Personlig rådgivning</h4>
+      <p>Du får en dedikeret rådgiver, der kender din branche og dine mål.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-icon">📈</div>
+      <h4>Langsigtet værdi</h4>
+      <p>Vi fokuserer på stabile leverandørløsninger, ikke kun rabatter.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-box">
+      <img src="images/phone-icon.png" alt="Telefon" class="icon">
+      <p><strong>Ring DK:</strong><br>+45 22 29 20 25 </p>
+    </div>
+    <div class="footer-box">
+      <img src="images/invoice-icon.png" alt="Faktura" class="icon">
+      <p><strong>Faktura DK:</strong><br>indkoebspartner@gmail.com</p>
+    </div>
+    <div class="footer-box">
+      <img src="images/mail-icon.png" alt="Mail" class="icon">
+      <p><strong>Mail DK:</strong><br>indkoebspartner@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="privatliv.html">Privatlivspolitik</a>
+    <a href="cookies.html">Cookiepolitik</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="#">Certificeringer</a>
+    <a href="#">Facebook</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<!-- Cookie + Analytics Script -->
+<script>
+  function loadAnalytics() {
+    const script = document.createElement("script");
+    script.setAttribute("async", "");
+    script.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-0BPHWGFELT");
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-0BPHWGFELT');
+  }
+
+  function acceptCookies() {
+    localStorage.setItem("cookieConsent", "accepted");
+    document.getElementById("cookie-popup").style.display = "none";
+    loadAnalytics();
+  }
+
+  function rejectCookies() {
+    localStorage.setItem("cookieConsent", "rejected");
+    document.getElementById("cookie-popup").style.display = "none";
+  }
+
+  window.addEventListener("load", () => {
+    const consent = localStorage.getItem("cookieConsent");
+    if (consent === "accepted") {
+      loadAnalytics();
+    } else if (!consent) {
+      document.getElementById("cookie-popup").style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>
